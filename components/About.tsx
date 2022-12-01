@@ -1,8 +1,13 @@
 import React from 'react'
 import { motion } from 'framer-motion'
-type Props = {}
+import { PageInfo } from '../pages/api/typings'
+import { urlFor } from '../sanity'
 
-function About({}: Props) {
+type Props = {
+    pageInfo: PageInfo
+}
+
+export default function About({pageInfo}: Props) {
   return (
     <motion.div
     initial= {{ opacity:0 }}
@@ -24,7 +29,7 @@ function About({}: Props) {
         }}
         whileInView={{ opacity:1, x:0 }}
         viewport={{ once:true }}
-        src="https://media4.giphy.com/media/qgQUggAC3Pfv687qPC/giphy.gif"
+        src={urlFor(pageInfo?.heroImage).url()}
         className='-mb-20 md:mb-0 flex-shrink-0 w-56 h-56 rounded-full object-cover
         md:rounded-lg md:w-95 md:h-64 xl:w-[600px] xl:h-[500px]'
         />
@@ -36,14 +41,9 @@ function About({}: Props) {
                 </span> about me
             </h4>
             <p className='text-base'>
-                I am Samnan Siddique. A normal sophomore who is interested in Development.
-                I love full stack development implementing technologies like ReactJs, MongoDB, ExpressJs
-                , Sanity. I am currently pursuing my Bachelors degree in Computer Science and Engineering.
-                I have made projects like WeatherForecast App using React and Twitter Bot using Python.
+                {pageInfo?.backgroundInformation}
             </p>
         </div>
     </motion.div>
   )
 }
-
-export default About

@@ -2,17 +2,20 @@ import Link from 'next/link';
 import React from 'react'
 import { Cursor, useTypewriter } from 'react-simple-typewriter'
 import BackgroundCircles from './BackgroundCircles'
-import { motion } from 'framer-motion';
+import { PageInfo } from '../pages/api/typings';
+import { urlFor } from '../sanity';
 
-type Props = {}
+type Props = {
+  pageInfo: PageInfo;
+};
 
-export default function Hero({}: Props) {
+export default function Hero({ pageInfo }: Props) {
     const [text, count] = useTypewriter ({
         words: [
-          "Hi, Its Samnan Siddique.",
-          "Just a Normal Developer,", 
-          "Who Loves Coffee", 
-          "And A C.Sec Enthusiast",
+          `Hi, It is ${pageInfo?.name}`,
+          `Just a Normal Developer,`, 
+          `Who Loves Networking and Security`, 
+          `And Some Iced Coffee`,
         ],
         loop: true,
         delaySpeed: 1750,
@@ -22,11 +25,10 @@ export default function Hero({}: Props) {
     <div className='h-screen flex flex-col space-y-8 items-center justify-center
     text-center overflow-hidden'>
         <BackgroundCircles />
-        <motion.img
+        <img
           className='relative rounded-full h-32 w-32 mx-auto object-cover'
-          src="https://user-images.githubusercontent.com/69011963/137184767-79a13ec7-1bb3-4341-a6da-3a149c9c159a.gif" 
-          alt=""
-        />
+          src={urlFor(pageInfo?.heroImage).url()}
+          />
         <div className='z-20'>
           <h2 className='text-sm uppercase text-gray-500 pb-2 tracking-[12px]'>
             Full Stack Developer

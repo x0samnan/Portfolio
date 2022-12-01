@@ -1,10 +1,13 @@
 import React from 'react'
 import { motion } from 'framer-motion';
+import { Project } from '../pages/api/typings';
+import { urlFor } from '../sanity';
 
-type Props = {}
+type Props = {
+    projects: Project[]
+}
 
-function Projects({}: Props) {
-  const projects = [1, 2];
+function Projects({ projects }: Props) {
   return (
     <motion.div
     initial= {{ opacity:0 }}
@@ -21,9 +24,10 @@ function Projects({}: Props) {
         snap-mandatory z-20 scrollbar scrollbar-track-gray-400/20
         scrollbar-thumb-[#0FFF50]/80'>
             {projects.map((project, i) => (
-                <div className='w-screen flex-shrink-0 snap-center flex flex-col
-                space-y-5 items-center justify-center p-20 md:p-44 h-screen' 
-                key={project}>
+                <div
+                key={project._id} 
+                className='w-screen flex-shrink-0 snap-center flex flex-col
+                space-y-5 items-center justify-center p-20 md:p-44 h-screen'>
                     <motion.img
                     initial={{
                         y: -300,
@@ -39,18 +43,29 @@ function Projects({}: Props) {
                     viewport={{
                         once:true,
                     }}
-                    src="https://i.ytimg.com/vi/IxuqmfO6p28/maxresdefault.jpg" 
+                    src={urlFor(project?.image).url()} 
                     alt="" 
                     />
                     <div className='space-y-10 px-0 md:px-10 max-w-6xl'>
                         <h4 className='text-4-xl font-semibold text-center'>
                             <span className='underline decoration-[#0FFF50]/50'>Project {i + 1} of {projects.length}:
-                            </span> React Weather Forecast
+                            </span> {" "}
+                            {project?.title}
                         </h4>
+
+                        <div className='flex items-center justify-center space-x-2'>
+                            {project.technologies.map((technology) => (
+                                <img
+                                className='h-10 w-10'
+                                key={technology._id}
+                                src={urlFor(technology.image).url()}
+                                alt=""
+                                />
+                            ))}
+                        </div>
+
                         <p className='text-lg text-center md:text-left'>
-                        A weather app done with React. Allows you to make a search 
-                        for the current weather by simply 
-                        typing common knowledge cities and save them to favourites on local storage.
+                        {project?.summary}
                         </p>
                     </div>
                 </div>
