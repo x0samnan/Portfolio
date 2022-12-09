@@ -29,8 +29,8 @@ export default function About({pageInfo}: Props) {
         }}
         whileInView={{ opacity:1, x:0 }}
         viewport={{ once:true }}
-        src={urlFor(pageInfo?.heroImage).url()}
-        className='-mb-20 md:mb-0 flex-shrink-0 w-56 h-56 rounded-full object-cover
+        src={urlFor(pageInfo?.profilePic).url()}
+        className='-mb-20 md:mb-0 flex-shrink-0 w-40 h-40 rounded-full object-cover
         md:rounded-lg md:w-95 md:h-64 xl:w-[600px] xl:h-[500px]'
         />
         
