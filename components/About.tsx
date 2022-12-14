@@ -35,12 +35,12 @@ export default function About({pageInfo}: Props) {
         />
         
         <div className='space-y-10 px-0 md:px-10'>
-            <h4 className='text-4xl font-semibold'>
+            <h4 className='text-2xl font-semibold'>
                 Here is a <span className='underline decoration-[#0BDA51]'>
                     little
                 </span> about me
             </h4>
-            <p className='text-base'>
+            <p className='text-base text-sm'>
                 {pageInfo?.backgroundInformation}
             </p>
         </div>

@@ -27,19 +27,29 @@ function Projects({ projects }: Props) {
                 <div
                 key={project._id} 
                 className='w-screen flex-shrink-0 snap-center flex flex-col
-                space-y-5 items-center justify-center p-20 md:p-22 h-screen'>
+                space-y-5 items-center justify-center p-10 md:p-22 h-screen'>
 
                     <div className='space-y-10 px-0 md:px-10 max-w-6xl'>
-                        <h4 className='text-4-xl font-semibold text-center'>
+                        <h4 className='text-2-xl font-semibold text-center'>
                             <span className='underline decoration-[#0FFF50]/50'>Project {i + 1} of {projects.length}:
                             </span> {" "}
                             {project?.title}
                         </h4>
 
+                        <h4 className='text-2-xl font-semibold text-center'>
+                            <span>
+                                Check out the project -&gt;
+                            </span> {" "}
+                            
+                            <span className='underline decoration-[#0FFF50]/50'>
+                                <a href={project?.linkToBuild} target="_blank" rel="noreferrer">Click Here!</a>
+                            </span>
+                        </h4>
+
                         <div className='flex items-center justify-center space-x-2'>
                             {project.technologies.map((technology) => (
                                 <img
-                                className='h-10 w-10'
+                                className='h-8 w-8'
                                 key={technology._id}
                                 src={urlFor(technology.image).url()}
                                 alt=""
@@ -47,7 +57,7 @@ function Projects({ projects }: Props) {
                             ))}
                         </div>
 
-                        <p className='text-lg text-center md:text-left'>
+                        <p className='text-sm text-center md:text-left'>
                         {project?.summary}
                         </p>
                     </div>

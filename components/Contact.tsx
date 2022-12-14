@@ -24,31 +24,31 @@ function Contact({}: Props) {
         </h3>
 
         <div className='flex flex-col space-y-5'>
-            <h4 className='text-3xl font-semibold text-center'>
+            <h4 className='text-2xl font-semibold text-center'>
                 Got any Queries?
                 <span className='decoration-[#0FFF50]/50 underline'> Let Me Know.</span>
             </h4>
 
             <div className='space-y-5'>
-                <div className='flex items-center space-x-5 justify-center'>
+                <div className='flex items-center space-x-2 justify-center'>
                     <Phone className='text-[#0FFF50] h-7 w-7 animate-pulse' />
-                    <p className='text-2xl'>+91 8420-480-716</p>
+                    <p className='text-1xl'>+91 8420-480-716</p>
                 </div>
 
-                <div className='flex items-center space-x-5 justify-center'>
+                <div className='flex items-center space-x-2 justify-center'>
                     <LocationMarker className='text-[#0FFF50] h-7 w-7 animate-pulse' />
-                    <p className='text-2xl'>Bangalore, Karnataka, India</p>
+                    <p className='text-1xl'>Bangalore, Karnataka, India</p>
                 </div>
 
-                <div className='flex items-center space-x-5 justify-center'>
+                <div className='flex items-center space-x-2 justify-center'>
                     <Mail className='text-[#0FFF50] h-7 w-7 animate-pulse' />
-                    <p className='text-2xl'>samnansiddique@yandex.com</p>
+                    <p className='text-1xl'>samnansiddique@yandex.com</p>
                 </div>
             </div>
 
 
-            <form onSubmit={handleSubmit(onSubmit)} className='flex flex-col space-y-1 w-fit mx-auto'>
-                <div className='flex space-x-1'>
+            <form onSubmit={handleSubmit(onSubmit)} className='flex flex-col space-y-1 w-fit'>
+                <div className='flex space-x-1 w-fit flex-row'>
                     <input {...register('name')} placeholder="Name" className='contactInput' type='text' />
                     <input {...register('email')} placeholder="Email" className='contactInput' type='email' />
                 </div>
