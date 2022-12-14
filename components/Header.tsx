@@ -56,7 +56,8 @@ export default function Header({socials}: Props) {
             className='cursor-pointer'
             network='email'
             fgColor='gray'
-            bgColor='transparent' />
+            bgColor='transparent'
+            url='mailto:samnansiddique@yandex.com' />
 
             <p className='uppercase hidden md:inline-flex text-sm text-gray-400'>
                 Get In Touch
