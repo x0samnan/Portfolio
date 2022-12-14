@@ -1,4 +1,5 @@
 import type { GetStaticProps, NextPage } from 'next'
+import { createClient } from 'next-sanity';
 import Head from 'next/head'
 import About from '../components/About';
 import Contact from '../components/Contact';
@@ -76,3 +77,4 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
     revalidate: 100,
   }
 }
+createClient({projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID})
